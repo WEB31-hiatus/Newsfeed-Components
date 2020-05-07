@@ -111,3 +111,48 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function createArticle(arr) {
+
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleFirstPara = document.createElement('p');
+  const articleSecondPara = document.createElement('p');
+  const articleThirdPara = document.createElement('p');
+  const articleExpand = document.createElement('span');
+
+// structure elements
+article.append(articleTitle, articleDate, articleFirstPara, articleSecondPara, articleThirdPara, articleExpand)
+
+// add classes to elements
+
+article.classList.add('article')
+articleDate.classList.add('date')
+articleExpand.classList.add('expandButton')
+
+// text content
+
+articleTitle.textContent = arr.title
+articleDate.textContent = arr.date
+articleFirstPara.textContent = arr.firstParagraph
+articleSecondPara.textContent = arr.secondParagraph
+articleThirdPara.textContent = arr.thirdParagraph
+articleExpand.textContent = 'Click Here'
+
+// articleExpand eventListener
+
+articleExpand.addEventListener('click', (event) => {
+  article.classList.toggle('article-open')
+});
+
+return article
+}
+
+data.push({title: 'Lambda Grads', date: 'March 12th, 2020', firstParagraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in consequat nunc. Mauris eget dictum libero. Sed lobortis tempor luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed faucibus nibh quis dui malesuada, nec scelerisque erat vehicula. Phasellus egestas placerat sem, eget dictum nibh venenatis id. Praesent sit amet interdum massa. Nunc vel congue orci, eu mattis magna.', secondParagraph: 'Phasellus venenatis porta accumsan. Sed bibendum, ligula vel condimentum pharetra, mauris ante porttitor sem, accumsan pellentesque est mi eget tellus. Curabitur bibendum at lacus in semper. Ut fermentum viverra posuere. Suspendisse molestie, velit id varius accumsan, libero nisl tincidunt est, sed viverra velit mauris eu mi. Morbi a commodo dolor. Integer ac bibendum dolor. Donec tristique ipsum a lacus ultrices, auctor dictum ligula bibendum. Mauris quis eros at ipsum fringilla efficitur non eu diam. In mollis libero eu sem faucibus venenatis. Sed sed sodales augue, porttitor molestie metus. Nulla sed tortor et nulla ornare blandit eu sed augue. Pellentesque ac quam et neque pulvinar consequat. Aliquam id ullamcorper sapien.', thirdParagraph: 'Vivamus id lorem in arcu accumsan maximus. Nam cursus ornare nisi, et blandit massa aliquet quis. Mauris euismod elit a dolor lobortis, nec semper neque tincidunt. Aenean auctor magna nec massa ultrices auctor. Pellentesque vestibulum enim sed neque convallis, at tempus massa interdum. Vestibulum condimentum felis sit amet urna imperdiet, non interdum felis interdum. Etiam facilisis sem erat, a accumsan turpis imperdiet in. Aliquam erat volutpat. Etiam at metus quis erat sollicitudin rutrum. Fusce volutpat eu mi id semper. Curabitur non augue ante. Nam quis ornare sapien, vel lobortis neque.'})
+
+const articles = document.querySelector('.articles')
+
+data.forEach( item => {
+  articles.append(createArticle(item))
+})
