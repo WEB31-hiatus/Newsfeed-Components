@@ -156,3 +156,4 @@ const articles = document.querySelector('.articles')
 data.forEach( item => {
   articles.append(createArticle(item))
 })
+

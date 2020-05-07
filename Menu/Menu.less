@@ -27,4 +27,16 @@
 
 .menu--open {
   display: block;
+  animation-name: slidein;
+  animation-duration: 1s;
+}
+@keyframes slidein {
+  from {
+    margin-right: 0%;
+    width: 0%;
+  }
+
+  to {
+    margin-right: 100%;
+  }
 }
